@@ -1,4 +1,5 @@
-﻿using dependencyinjection.Services;
+﻿using dependencyinjection.Interfaces;
+using dependencyinjection.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -8,11 +9,12 @@ public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
 
-    private readonly ConsoleNotification _notification = new();
+    private readonly INotification _notification;
 
-    public IndexModel(ILogger<IndexModel> logger)
+    public IndexModel(ILogger<IndexModel> logger, INotification notification)
     {
         _logger = logger;
+        _notification = notification;
     }
 
     public void OnGet()
