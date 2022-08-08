@@ -1,9 +1,8 @@
 ﻿using System;
-using dependencyinjection.Interfaces;
 
 namespace dependencyinjection.Services
 {
-    public class ConsoleNotification : INotification
+    public class ConsoleNotification
     {
         public void SendMessage(string message)
         {

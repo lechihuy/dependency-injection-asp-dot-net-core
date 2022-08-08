@@ -1,11 +1,7 @@
-using dependencyinjection.Interfaces;
-using dependencyinjection.Services;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddScoped<INotification, ConsoleNotification>();
 
 var app = builder.Build();
 
