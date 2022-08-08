@@ -3,9 +3,9 @@ using dependencyinjection.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddScoped<INotification, ConsoleNotification>();
+// builder.Services.AddScoped<INotification, ConsoleNotification>();
+builder.Services.AddScoped<INotification, LoggingNotification>();
 
 var app = builder.Build();
 

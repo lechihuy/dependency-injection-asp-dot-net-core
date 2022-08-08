@@ -7,7 +7,7 @@ namespace dependencyinjection.Services
     {
         public void SendMessage(string message)
         {
-            Console.WriteLine($"ConsoleNotification.WriteMessage called. Message: {message}");
+            Console.WriteLine($"ConsoleNotification.SendMessage called. Message: {message}");
         }
     }
 }
