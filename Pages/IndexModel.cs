@@ -7,22 +7,18 @@ namespace dependencyinjection.Pages;
 
 public class IndexModel : PageModel
 {
-    private readonly INotification _notification;
+    private readonly ConsoleNotification _consoleNotification;
+    private readonly LoggingNotification _loggingNotification;
 
-    public IndexModel(INotification notification, IEnumerable<INotification> notifications)
+    public IndexModel(ConsoleNotification consoleNotification, LoggingNotification loggingNotification)
     {
-        Console.WriteLine($"notification is LoggingNotification: {notification is LoggingNotification}");
-
-        var dependencyArray = notifications.ToArray();
-
-        Console.WriteLine($"dependencyArray[0] is ConsoleNotification: {dependencyArray[0] is ConsoleNotification}");
-        Console.WriteLine($"dependencyArray[1] is LoggingNotification: {dependencyArray[1] is LoggingNotification}");
-
-        _notification = notification;
+        _consoleNotification = consoleNotification;
+        _loggingNotification = loggingNotification;
     }
 
     public void OnGet()
     {
-        _notification.SendMessage("IndexModel.OnGet");
+        _consoleNotification.SendMessage("IndexModel.OnGet");
+        _loggingNotification.SendMessage("IndexModel.OnGet");
     }
 }
