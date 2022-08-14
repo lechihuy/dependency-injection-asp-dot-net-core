@@ -7,13 +7,17 @@ namespace dependencyinjection.Pages;
 
 public class IndexModel : PageModel
 {
-    private readonly ILogger<IndexModel> _logger;
-
     private readonly INotification _notification;
 
-    public IndexModel(ILogger<IndexModel> logger, INotification notification)
+    public IndexModel(INotification notification, IEnumerable<INotification> notifications)
     {
-        _logger = logger;
+        Console.WriteLine($"notification is LoggingNotification: {notification is LoggingNotification}");
+
+        var dependencyArray = notifications.ToArray();
+
+        Console.WriteLine($"dependencyArray[0] is ConsoleNotification: {dependencyArray[0] is ConsoleNotification}");
+        Console.WriteLine($"dependencyArray[1] is LoggingNotification: {dependencyArray[1] is LoggingNotification}");
+
         _notification = notification;
     }
 
