@@ -7,7 +7,9 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            services.AddScoped<INotification, LoggingNotification>();
+            // services.AddTransient<INotification, LoggingNotification>();
+            // services.AddScoped<INotification, LoggingNotification>();
+            services.AddSingleton<INotification, LoggingNotification>();
 
             return services;
         }
